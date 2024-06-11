@@ -10,6 +10,8 @@ type CompanyData = {
   address: string
   description: string
   website: string
+  employees: number
+  size: string
 }
 
 type SimilarCompany = {
@@ -59,6 +61,14 @@ export default function CompanyCard({ companyData, similarCompanies }: CompanyCa
               </div>
             </div>
           )}
+          <div className="flex gap-2">
+            <span className="font-semibold">Employees: </span>
+            <span>{companyData.employees}</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="font-semibold">Employee size: </span>
+            <span>{companyData.size}</span>
+          </div>
         </div>
       </div>
       
