@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const response = await fetch(`https://kiliba.tcrespo.com/webhook/864b7785-c341-4415-9758-a49302696681?domain=${domain}`)
+    const response = await fetch(`https://kiliba.tcrespo.com/webhook/864b7785-c341-4415-9758-a49302696681?domain=${domain}`, {cache: 'no-cache'})
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
