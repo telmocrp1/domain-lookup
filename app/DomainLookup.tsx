@@ -11,12 +11,14 @@ export default function DomainLookup() {
   const [domain, setDomain] = useState("")
   const [isPending, startTransition] = useTransition()
   const [companyData, setCompanyData] = useState<any>(null)
+  const [similarCompanies, setSimilarCompanies] = useState<any[]>([])
 
   const handleSearch = () => {
     startTransition(async () => {
       const response = await fetch(`/api/company?domain=${domain}`)
       const data = await response.json()
-      setCompanyData(data.companyData)  
+      setCompanyData(data.companyData)
+      setSimilarCompanies(data.similarCompanies || [])
     })
   }
 
@@ -34,7 +36,9 @@ export default function DomainLookup() {
           {isPending ? "Searching..." : "Search"}
         </Button>
       </div>
-      {companyData && <CompanyCard companyData={companyData} />}
+      {companyData && (
+        <CompanyCard companyData={companyData} similarCompanies={similarCompanies} />
+      )}
     </>
   )
 }
