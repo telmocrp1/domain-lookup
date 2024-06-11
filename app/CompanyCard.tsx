@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 type CompanyData = {
   name: string
@@ -31,22 +32,27 @@ export default function CompanyCard({ companyData, similarCompanies }: CompanyCa
           <h2 className="text-2xl font-bold">{companyData.name}</h2>
           {companyData.domain && (
             <div>
-              <Link href={companyData.domain} target="_blank" className="text-blue-500 hover:underline">
-                {companyData.domain}
-              </Link>
+              <Button variant="outline" asChild>
+                <Link href={companyData.domain} target="_blank">
+                  {companyData.domain}
+                </Link>
+              </Button>
             </div>
           )}
         </div>
         <div className="grid gap-2">
           <div className="flex items-center gap-2">
+            <span className="font-semibold">Address: </span>
             <span>{companyData.address}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2">
+            <span className="font-semibold">Description: </span>
             <span>{companyData.description}</span>
           </div>
           {companyData.website && (
             <div className="flex items-center gap-2">
               <div>
+                <span className="font-semibold">Website: </span>
                 <Link href={companyData.website} target="_blank" className="text-blue-500 hover:underline">
                   {companyData.website}
                 </Link>
