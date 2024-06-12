@@ -12,6 +12,7 @@ type CompanyData = {
   website: string
   employees: number
   size: string
+  linkedin: string
 }
 
 type SimilarCompany = {
@@ -69,6 +70,12 @@ export default function CompanyCard({ companyData, similarCompanies }: CompanyCa
             <span className="font-semibold">Employee size: </span>
             <span>{companyData.size}</span>
           </div>
+          <div className="flex gap-2">
+            <span className="font-semibold">Linkedin: </span>
+              <Link href={companyData.linkedin} target="_blank" className="text-blue-500 hover:underline">
+                {companyData.linkedin}
+              </Link>
+            </div>
         </div>
       </div>
       
