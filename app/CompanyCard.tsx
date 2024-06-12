@@ -35,7 +35,7 @@ export default function CompanyCard({ companyData, similarCompanies }: CompanyCa
           {companyData.domain && (
             <div>
               <Button variant="outline" asChild>
-                <Link href={companyData.domain} target="_blank">
+                <Link href={companyData.website} target="_blank">
                   {companyData.domain}
                 </Link>
               </Button>
